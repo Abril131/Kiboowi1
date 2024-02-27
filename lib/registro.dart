@@ -37,36 +37,36 @@ class _MyHomePageState extends State<MyLoginPage> {
           Positioned(
             top: 40,
             left: 20,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Acción para regresar
-                },
-                child: Center(
-                  child: Icon(
-                    Icons.arrow_back,
-                    size: 30,
-                    color: Colors.white,
-                  ),
+            child: ElevatedButton(
+              onPressed: () {
+                // Acción para regresar
+              },
+              child: Center(
+                child: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                  color: Colors.white,
                 ),
-                style: ElevatedButton.styleFrom(
-                  primary: miColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: miColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
+              ),
             ),
           ),
           // Contenido central
-          Center(
-            child: Container(
-              margin: EdgeInsets.only(top: 30),
-              width: 300,
-              height: 500,
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8),
-                borderRadius: BorderRadius.circular(20),
-              ),
+          Container(
+            margin: EdgeInsets.only(top: 130,left: 50),
+            width: 300,
+            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: SingleChildScrollView(
+              reverse: true,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -84,81 +84,81 @@ class _MyHomePageState extends State<MyLoginPage> {
                     controller: name,
                     decoration: InputDecoration(
                       labelText: 'Nombre completo',
-                      prefixIcon: Icon(Icons.sort_by_alpha, color: Colors.white,),
+                      prefixIcon: Icon(Icons.sort_by_alpha, color: Colors.white, size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: username,
                     decoration: InputDecoration(
                       labelText: 'Nombre de usuario',
-                      prefixIcon: Icon(Icons.person, color: Colors.white,),
+                      prefixIcon: Icon(Icons.person, color: Colors.white, size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: email,
                     decoration: InputDecoration(
                       labelText: 'Correo electrónico',
-                      prefixIcon: Icon(Icons.email, color: Colors.white,),
+                      prefixIcon: Icon(Icons.email, color: Colors.white, size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: password,
                     decoration: InputDecoration(
                       labelText: 'Contraseña',
-                      prefixIcon: Icon(Icons.password, color: Colors.white,),
+                      prefixIcon: Icon(Icons.password, color: Colors.white,size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: datebirth,
                     decoration: InputDecoration(
                       labelText: 'Fecha de nacimiento',
-                      prefixIcon: Icon(Icons.calendar_month, color: Colors.white,),
+                      prefixIcon: Icon(Icons.calendar_month, color: Colors.white, size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ],
               ),
             ),
           ),
-          // Botón de registro dentro del Container
+          // Botón de registro fuera del contenedor para que no se vea afectado por el scroll
           Positioned(
             bottom: 50,
             left: MediaQuery.of(context).size.width / 2 - 70,

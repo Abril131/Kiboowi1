@@ -82,30 +82,30 @@ class _MyHomePageState extends State<MySingIn> {
                     controller: email,
                     decoration: InputDecoration(
                       labelText: 'Correo electrónico',
-                      prefixIcon: Icon(Icons.email, color: Colors.white),
+                      prefixIcon: Icon(Icons.email, color: Colors.white, size: 20,),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: password,
                     decoration: InputDecoration(
                       labelText: 'Contraseña',
-                      prefixIcon: Icon(Icons.password, color: Colors.white),
+                      prefixIcon: Icon(Icons.password, color: Colors.white, size: 20,),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40),
                       ),
-                      labelStyle: TextStyle(color: Colors.white),
+                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                   SizedBox(height: 20),
                   // Botón de registro
