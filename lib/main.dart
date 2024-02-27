@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiboowi_project/book.dart';
 import 'package:kiboowi_project/registro.dart';
 import 'package:kiboowi_project/singin.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MySingIn(title: '<'),
+      home: const MyBook(title: '<'),
     );
   }
 }
