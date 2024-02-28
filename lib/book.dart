@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 
 class MyBook extends StatefulWidget {
   const MyBook({Key? key, required this.title}) : super(key: key);
@@ -10,8 +12,10 @@ class MyBook extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyBook> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController inicio = TextEditingController();
+  TextEditingController fin = TextEditingController();
+  TextEditingController nota = TextEditingController();
+  TextEditingController reac = TextEditingController();// Nuevo controlador para el tercer TextField
 
   Color miColor = Color(0xFF4D5840);
   Color miB = Color(0xFFDDA15E);
@@ -26,7 +30,7 @@ class _MyHomePageState extends State<MyBook> {
           // Fondo con la imagen
           Positioned.fill(
             child: Container(
-              color: miB,
+              color: miC.withOpacity(0.5),
             ),
           ),
           // Contenido central
@@ -48,16 +52,33 @@ class _MyHomePageState extends State<MyBook> {
                           child: Container(
                             color: Colors.transparent,
                             child: Center(
-                              child: Text(
-                                'Contenido de la primera columna',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Titulo',
+                                    style: GoogleFonts.manrope(
+                                      textStyle: TextStyle(
+                                        color: miColor,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Autor',
+                                    style: GoogleFonts.manrope(
+                                      textStyle: TextStyle(
+                                        color: miColor,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
+
                         // Segunda columna
                         Expanded(
                           child: Container(
@@ -65,8 +86,8 @@ class _MyHomePageState extends State<MyBook> {
                             child: Center(
                               child: Image.asset(
                                 'assets/img/imgf2.png',
-                                width: 50,
-                                height: 100,
+                                width: 100,
+                                height: 150,
                               ),
                             ),
                           ),
@@ -74,25 +95,125 @@ class _MyHomePageState extends State<MyBook> {
                       ],
                     ),
                   ),
-                  // Segunda fila (blanca) con TextField
+                  // Segunda fila (blanca)
                   Expanded(
                     child: Container(
                       color: miW,
                       padding: EdgeInsets.all(20),
-                      child:
-                      TextField(
-                        controller: email,
-                        decoration: InputDecoration(
-                          labelText: 'Correo electrónico',
-                          prefixIcon: Icon(Icons.email, color: Colors.white, size: 20),
-                          fillColor: miColor,
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Fecha de lectura',
+                            style: GoogleFonts.manrope(
+                              textStyle: TextStyle(
+                                color: miColor,
+                                fontSize: 20,
+                              ),
+                            ),
                           ),
-                          labelStyle: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                          SizedBox(height: 20),
+                          // Columna con tres TextField
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextField(
+                                      controller: inicio,
+                                      maxLines: 1,
+                                      decoration: InputDecoration(
+                                        labelText: 'Inicio',
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(color: miColor),
+                                        ),
+                                        labelStyle: GoogleFonts.manrope(
+                                          textStyle: TextStyle(color: miColor, fontSize: 15),
+                                        ),
+                                      ),
+                                      style: GoogleFonts.manrope(
+                                        textStyle: TextStyle(color: miColor, fontSize: 15),
+                                      ),
+                                    ),
+
+
+                                  ),
+                                  SizedBox(width: 20),
+                                  Expanded(
+                                    child: TextField(
+                                      controller: fin,
+                                      maxLines: 1,
+                                      decoration: InputDecoration(
+                                        labelText: 'Fin',
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(color: miColor),
+                                        ),
+                                        labelStyle: GoogleFonts.manrope(
+                                          textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                        ),
+                                      ),
+                                      style: GoogleFonts.manrope(
+                                        textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                      ),
+                                    ),
+
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 20),
+                              // Tercer TextField
+                              TextField(
+                                controller: nota,
+                                maxLines: 1,
+                                decoration: InputDecoration(
+                                  labelText: 'Nota',
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: miColor),
+                                  ),
+                                  labelStyle: GoogleFonts.manrope(
+                                    textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                  ),
+                                ),
+                                style: GoogleFonts.manrope(
+                                  textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              // Tercer TextField
+                              TextField(
+                                controller: reac,
+                                maxLines: 1,
+                                decoration: InputDecoration(
+                                  labelText: 'Reacciones',
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.blue),
+                                  ),
+                                  labelStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                ),
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                              SizedBox(height: 20),
+                              ElevatedButton(
+                                onPressed: () {
+                                 // _showEmojiPicker(context);
+                                },
+                                child: Text('Mostrar Emojis'),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),

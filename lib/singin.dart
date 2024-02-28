@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MySingIn extends StatefulWidget {
   const MySingIn({Key? key, required this.title}) : super(key: key);
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MySingIn> {
           // Contenido central
           Center(
             child: Container(
-              margin: EdgeInsets.only(top: 100), // Ajusta según sea necesario
+              margin: EdgeInsets.only(top: 20),
               width: 300,
               height: 500,
               padding: EdgeInsets.symmetric(horizontal: 40),
@@ -71,9 +72,11 @@ class _MyHomePageState extends State<MySingIn> {
                   Text(
                     '¡Bienvenido!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.manrope(
+                      textStyle: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   SizedBox(height: 30),
@@ -82,31 +85,40 @@ class _MyHomePageState extends State<MySingIn> {
                     controller: email,
                     decoration: InputDecoration(
                       labelText: 'Correo electrónico',
-                      prefixIcon: Icon(Icons.email, color: Colors.white, size: 20,),
+                      prefixIcon: Icon(Icons.email, color: miColor, size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
+                      labelStyle: GoogleFonts.manrope(
+                        textStyle: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: GoogleFonts.manrope(
+                      textStyle: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: password,
                     decoration: InputDecoration(
                       labelText: 'Contraseña',
-                      prefixIcon: Icon(Icons.password, color: Colors.white, size: 20,),
+                      prefixIcon: Icon(Icons.password, color: Colors.white, size: 20),
                       fillColor: miColor,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40),
                       ),
-                      labelStyle: TextStyle(color: Colors.white, fontSize: 15),
+                      labelStyle: GoogleFonts.manrope(
+                        textStyle: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ),
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: GoogleFonts.manrope(
+                      textStyle: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
                   ),
+
                   SizedBox(height: 20),
                   // Botón de registro
                   ElevatedButton(
@@ -124,9 +136,11 @@ class _MyHomePageState extends State<MySingIn> {
                       children: [
                         Text(
                           'Registrarse',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
+                          style: GoogleFonts.manrope(
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                         SizedBox(width: 8),
