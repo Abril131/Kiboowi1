@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+//import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 
 class MyBook extends StatefulWidget {
   const MyBook({Key? key, required this.title}) : super(key: key);
@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyBook> {
                                       textStyle: TextStyle(
                                         color: miColor,
                                         fontSize: 20,
+                                          fontWeight: FontWeight.w500
                                       ),
                                     ),
                                   ),
@@ -70,6 +71,7 @@ class _MyHomePageState extends State<MyBook> {
                                       textStyle: TextStyle(
                                         color: miColor,
                                         fontSize: 15,
+                                          fontWeight: FontWeight.w500
                                       ),
                                     ),
                                   ),
@@ -109,10 +111,11 @@ class _MyHomePageState extends State<MyBook> {
                               textStyle: TextStyle(
                                 color: miColor,
                                 fontSize: 20,
+                                  fontWeight: FontWeight.w500
                               ),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 10),
                           // Columna con tres TextField
                           Column(
                             children: [
@@ -131,11 +134,11 @@ class _MyHomePageState extends State<MyBook> {
                                           borderSide: BorderSide(color: miColor),
                                         ),
                                         labelStyle: GoogleFonts.manrope(
-                                          textStyle: TextStyle(color: miColor, fontSize: 15),
+                                          textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       style: GoogleFonts.manrope(
-                                        textStyle: TextStyle(color: miColor, fontSize: 15),
+                                        textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
                                       ),
                                     ),
 
@@ -155,18 +158,18 @@ class _MyHomePageState extends State<MyBook> {
                                           borderSide: BorderSide(color: miColor),
                                         ),
                                         labelStyle: GoogleFonts.manrope(
-                                          textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                          textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       style: GoogleFonts.manrope(
-                                        textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                        textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
                                       ),
                                     ),
 
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(height: 10),
                               // Tercer TextField
                               TextField(
                                 controller: nota,
@@ -180,36 +183,111 @@ class _MyHomePageState extends State<MyBook> {
                                     borderSide: BorderSide(color: miColor),
                                   ),
                                   labelStyle: GoogleFonts.manrope(
-                                    textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                    textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
                                   ),
                                 ),
                                 style: GoogleFonts.manrope(
-                                  textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                  textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(height: 10),
                               // Tercer TextField
                               TextField(
                                 controller: reac,
                                 maxLines: 1,
                                 decoration: InputDecoration(
-                                  labelText: 'Reacciones',
+                                  labelText: 'Reacción',
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.blue),
+                                    borderSide: BorderSide(color: miColor),
                                   ),
-                                  labelStyle: TextStyle(color: Colors.black, fontSize: 15),
+                                  labelStyle: GoogleFonts.manrope(
+                                    textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
+                                    ),
+                                  suffixIcon: IconButton(
+                                    icon: Icon(Icons.emoji_emotions),
+                                    onPressed: () {
+                                     // _showEmojiPicker(context);
+                                    },
+                                  ),
                                 ),
-                                style: TextStyle(color: Colors.black, fontSize: 15),
+                                style: GoogleFonts.manrope(
+                                  textStyle: TextStyle(color: miColor, fontSize: 15,fontWeight: FontWeight.w500),
+                                ),
                               ),
                               SizedBox(height: 20),
-                              ElevatedButton(
-                                onPressed: () {
-                                 // _showEmojiPicker(context);
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Estatus:',
+                                  style: GoogleFonts.manrope(
+                                    textStyle: TextStyle(
+                                      color: miColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                             SizedBox(height: 15),
+                              InkWell(
+                                onTap: () {
+                                  // Acción cuando se toca el botón "Seleccionar"
+                                  _showPopupMenu(context); // Definir la función _showPopupMenu más adelante
                                 },
-                                child: Text('Mostrar Emojis'),
+                                child: IgnorePointer(
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      padding: EdgeInsets.only(right: 50), // Ajusta la cantidad de espacio a la izquierda
+                                      height: 30, // ajusta la altura según tus necesidades
+                                      width: 250, // ajusta el ancho según tus necesidades
+                                      child: TextField(
+                                        maxLines: 1,
+                                        textAlign: TextAlign.left,
+                                        decoration: InputDecoration(
+                                          labelText: 'Seleccionar',
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(0),
+                                          ),
+                                          labelStyle: GoogleFonts.manrope(
+                                            textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
+                                          ),
+                                          suffixIcon: Icon(Icons.arrow_drop_down),
+                                        ),
+                                        style: GoogleFonts.manrope(
+                                          textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              SizedBox(height: 30),
+
+                              SizedBox(
+                                height: 40, // ajusta la altura según tus necesidades
+                                width: 200, // ajusta el ancho según tus necesidades
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    // Acción para el botón "Guardar"
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    primary: miB, // Puedes cambiar el color según tus preferencias
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Guardar',
+                                    style: GoogleFonts.manrope(
+                                      textStyle: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -249,4 +327,40 @@ class _MyHomePageState extends State<MyBook> {
       ),
     );
   }
+  // Función para mostrar el menú de opciones
+  void _showPopupMenu(BuildContext context) {
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(1, 600, 0, 50),
+      // Puedes ajustar la posición según tus necesidades
+      items: <PopupMenuEntry>[
+        PopupMenuItem(
+          child: Text(
+            'Opción 1',
+            style: GoogleFonts.manrope(
+              textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
+            ),
+          ),
+          value: 'opcion1',
+        ),
+        PopupMenuItem(
+          child: Text(
+            'Opción 2',
+            style: GoogleFonts.manrope(
+              textStyle: TextStyle(color: miColor, fontSize: 15, fontWeight: FontWeight.w500),
+            ),
+          ),
+          value: 'opcion2',
+        ),
+        // Agrega más opciones según sea necesario
+      ],
+    ).then((value) {
+      if (value != null) {
+        // Acciones según la opción seleccionada
+        print('Opción seleccionada: $value');
+      }
+    });
+  }
 }
+
+
